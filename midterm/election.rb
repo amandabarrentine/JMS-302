@@ -1,25 +1,29 @@
 def get_results candidate
-    entries = 0
         puts "What are the results for #{candidate}? Type 'done' when done."
-        results = gets.chomp
+        results = 0
     while true
-        if results.downcase == 'done'
+        result = gets.chomp
+        if result.downcase == 'done'
             break
         end
-    entries += 1
-    results += results
-    percentage = (results.to_i / entries ) * 100
-        return candidate
-        return percentage
+    
+        results += result.to_i
+          
     end
+    
+    return results
 end
 
-get_results ("Michelle Nunn")
-get_results ("David Perdue")
+nunn_votes = get_results ("Michelle Nunn")
+perdue_votes = get_results ("David Perdue")
 
-print "#{candidate} is winning with #{percentage}% of the votes."
+total_votes = nunn_votes + perdue_votes
+nunn_percentage = ((nunn_votes * 100) / total_votes)
+perdue_percentage = ((perdue_percentage *100)/ total_votes)
 
-#results_array = Array.new
-            #results_array.push(results)
-            #percentage = ( results / results_array.size )
-            #return percentage
+if nunn_percentage > perdue_percentage
+    print "Michelle Nunn is winning with #{nunn_pecentage}% of the votes."
+else 
+    print "David Perdue is winning with #{perdue_percentage}% of the votes."
+end
+
